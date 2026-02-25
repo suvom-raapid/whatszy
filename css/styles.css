@@ -816,24 +816,13 @@ html[data-theme-ready] .btn-format {
   transition: all 0.2s;
 }
 
-#cookie-accept {
+#cookie-dismiss {
   background: var(--green);
   color: #000;
 }
 
-#cookie-accept:hover {
+#cookie-dismiss:hover {
   background: #2ee872;
-}
-
-#cookie-decline {
-  background: transparent;
-  color: var(--text-dim);
-  border: 1px solid var(--border);
-}
-
-#cookie-decline:hover {
-  border-color: var(--text-dim);
-  color: var(--text);
 }
 
 @media (max-width: 600px) {
