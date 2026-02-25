@@ -1,24 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YTQW8NG2R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8YTQW8NG2R');
-  </script>
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1485600963253811"
-       crossorigin="anonymous"></script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
   <meta name="description" content="Terms of Service for WhatsFormat - WhatsApp Text Toolkit">
+  <meta name="keywords" content="WhatsFormat, terms of service, usage terms, disclaimer, WhatsApp tools">
   <meta name="robots" content="index, follow">
   <title>Terms of Service — WhatsFormat</title>
 
@@ -27,7 +14,13 @@
   <meta property="og:title" content="Terms of Service — WhatsFormat">
   <meta property="og:description" content="Terms of Service for WhatsFormat - WhatsApp Text Toolkit">
   <meta property="og:url" content="https://whatsformat.com/terms.html">
-  <meta property="og:image" content="https://whatsformat.com/img/og-image.png">
+  <meta property="og:image" content="https://whatsformat.com/img/og-image.svg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Terms of Service — WhatsFormat">
+  <meta name="twitter:description" content="Terms of Service for WhatsFormat - WhatsApp Text Toolkit">
+  <meta name="twitter:image" content="https://whatsformat.com/img/og-image.svg">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://whatsformat.com/terms.html">
@@ -42,8 +35,22 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
 
+  <!-- Cookie Consent (gates GA + AdSense) -->
+  <script src="js/cookie-consent.js"></script>
+
   <!-- Theme (blocking — prevents FOUC) -->
   <script src="js/theme-init.js"></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "WhatsFormat",
+    "url": "https://whatsformat.com",
+    "description": "Free, open-source WhatsApp text formatting tools."
+  }
+  </script>
 
   <style>
     .content-page {
@@ -202,6 +209,15 @@
        <a href="about.html" style="color: var(--green); text-decoration: none;">About</a></p>
     <p style="margin-top: 1rem;">© 2026 WhatsFormat. All rights reserved.</p>
   </footer>
+</div>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent-banner" class="cookie-consent">
+  <p>We use cookies for analytics and ads. See our <a href="privacy.html">Privacy Policy</a>.</p>
+  <div class="cookie-consent-buttons">
+    <button id="cookie-accept">Accept</button>
+    <button id="cookie-decline">Decline</button>
+  </div>
 </div>
 
 <!-- Theme toggle wiring -->
