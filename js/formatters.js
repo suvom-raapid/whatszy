@@ -85,7 +85,7 @@ export function updateFormatPreview() {
 
   // Simple WhatsApp-style preview rendering
   let html = escapeHtml(raw);
-  html = html.replace(/```([\s\S]*?)```/g, '<code style="font-family:Space Mono,monospace; background:rgba(0,0,0,0.3); padding:2px 4px; border-radius:3px;">$1</code>');
+  html = html.replace(/```([\s\S]*?)```/g, '<code style="font-family:Space Mono,monospace; background:var(--code-bg); padding:2px 4px; border-radius:3px;">$1</code>');
   html = html.replace(/\*(.+?)\*/g, '<b>$1</b>');
   html = html.replace(/_(.+?)_/g, '<i>$1</i>');
   html = html.replace(/~(.+?)~/g, '<s>$1</s>');
@@ -98,7 +98,7 @@ export function updateFormatPreview() {
     preview.style.fontStyle = '';
   } else {
     preview.innerHTML = 'Your message preview...';
-    preview.style.color = 'rgba(255,255,255,0.45)';
+    preview.style.color = 'var(--preview-placeholder)';
     preview.style.fontStyle = 'italic';
   }
 }

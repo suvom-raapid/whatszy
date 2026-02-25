@@ -17,6 +17,46 @@
   --blue: #74c0fc;
   --radius: 14px;
   --radius-sm: 8px;
+  --wa-bubble: #005c4b;
+  --btn-primary-text: #000000;
+  --grid-opacity: 0.15;
+  --icon-teal-bg: rgba(0, 168, 132, 0.15);
+  --icon-yellow-bg: rgba(255, 212, 59, 0.12);
+  --icon-red-bg: rgba(255, 107, 107, 0.12);
+  --icon-blue-bg: rgba(116, 192, 252, 0.12);
+  --icon-white-bg: rgba(255, 255, 255, 0.08);
+  --code-bg: rgba(0, 0, 0, 0.3);
+  --preview-placeholder: rgba(255, 255, 255, 0.45);
+}
+
+/* === LIGHT THEME === */
+:root[data-theme="light"] {
+  --bg: #f0f2f5;
+  --surface: #ffffff;
+  --surface-2: #f7f8fa;
+  --border: #e4e6eb;
+  --green: #25d366;
+  --green-dim: #1a9e4a;
+  --green-glow: rgba(37, 211, 102, 0.1);
+  --green-glow-strong: rgba(37, 211, 102, 0.2);
+  --teal: #008069;
+  --text: #111b21;
+  --text-dim: #54656f;
+  --text-dark: #8696a0;
+  --white: #ffffff;
+  --red: #d32f2f;
+  --yellow: #f57c00;
+  --blue: #1976d2;
+  --wa-bubble: #d9fdd3;
+  --btn-primary-text: #000000;
+  --grid-opacity: 0.04;
+  --icon-teal-bg: rgba(0, 128, 105, 0.1);
+  --icon-yellow-bg: rgba(245, 124, 0, 0.1);
+  --icon-red-bg: rgba(211, 47, 47, 0.1);
+  --icon-blue-bg: rgba(25, 118, 210, 0.1);
+  --icon-white-bg: rgba(0, 0, 0, 0.05);
+  --code-bg: rgba(0, 0, 0, 0.06);
+  --preview-placeholder: rgba(0, 0, 0, 0.35);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -50,7 +90,7 @@ body::after {
     linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 60px 60px;
-  opacity: 0.15;
+  opacity: var(--grid-opacity);
   pointer-events: none;
   z-index: 0;
 }
@@ -178,11 +218,11 @@ header p {
 
 /* Icon colors */
 .icon-green  { background: var(--green-glow); color: var(--green); }
-.icon-teal   { background: rgba(0,168,132,0.15); color: var(--teal); }
-.icon-yellow { background: rgba(255,212,59,0.12); color: var(--yellow); }
-.icon-red    { background: rgba(255,107,107,0.12); color: var(--red); }
-.icon-blue   { background: rgba(116,192,252,0.12); color: var(--blue); }
-.icon-white  { background: rgba(255,255,255,0.08); color: var(--text); }
+.icon-teal   { background: var(--icon-teal-bg); color: var(--teal); }
+.icon-yellow { background: var(--icon-yellow-bg); color: var(--yellow); }
+.icon-red    { background: var(--icon-red-bg); color: var(--red); }
+.icon-blue   { background: var(--icon-blue-bg); color: var(--blue); }
+.icon-white  { background: var(--icon-white-bg); color: var(--text); }
 
 /* === FORM ELEMENTS === */
 textarea, input[type="text"], input[type="number"] {
@@ -329,7 +369,7 @@ label {
 
 /* === PREVIEW BUBBLE === */
 .wa-preview {
-  background: #005c4b;
+  background: var(--wa-bubble);
   border-radius: 8px;
   padding: 0.75rem 1rem;
   display: inline-block;
@@ -639,4 +679,76 @@ footer a:hover { text-decoration: underline; }
 @keyframes pulse {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
+}
+
+/* === THEME TRANSITIONS (only after initial paint) === */
+html[data-theme-ready] body,
+html[data-theme-ready] .tool-card,
+html[data-theme-ready] textarea,
+html[data-theme-ready] input,
+html[data-theme-ready] .output-box,
+html[data-theme-ready] .theme-toggle,
+html[data-theme-ready] .wa-preview,
+html[data-theme-ready] .help-section,
+html[data-theme-ready] .fancy-option,
+html[data-theme-ready] .emoji-grid,
+html[data-theme-ready] .emoji-cat-btn,
+html[data-theme-ready] .btn-secondary,
+html[data-theme-ready] .btn-format {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* === THEME TOGGLE BUTTON === */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--green);
+  box-shadow: 0 2px 16px var(--green-glow-strong);
+  transform: translateY(-2px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(15deg);
+}
+
+@media (max-width: 600px) {
+  .theme-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .theme-toggle svg {
+    width: 18px;
+    height: 18px;
+  }
 }
