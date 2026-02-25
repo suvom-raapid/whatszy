@@ -21,6 +21,7 @@ import {
   switchEmojiCategory,
   addEmoji
 } from './emoji.js';
+import { toggleTheme } from './theme.js';
 
 // =============================
 // TAB SWITCHING FUNCTIONALITY
@@ -72,6 +73,7 @@ window.updateReverse = updateReverse;
 window.updateCounter = updateCounter;
 window.switchEmojiCategory = switchEmojiCategory;
 window.addEmoji = addEmoji;
+window.toggleTheme = toggleTheme;
 
 // =============================
 // INITIALIZE APPLICATION
