@@ -1,0 +1,8 @@
+# ads.txt file for WhatStyle
+# Add your Google AdSense publisher ID after approval
+
+# Format: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+# Replace XXXXXXXXXXXXXXXX with your AdSense publisher ID
+
+# Example (uncomment and replace with your ID after AdSense approval):
+# google.com, pub-0123456789012345, DIRECT, f08c47fec0942fa0

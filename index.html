@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Format your WhatsApp messages with bold, italic, strikethrough, fancy text, blank messages, emojis & more — all in one place. Free online WhatsApp text formatter and styling tools.">
+  <meta name="keywords" content="WhatsApp, text formatter, fancy text, emoji, blank message, text tools, WhatsApp formatting, bold text, italic text, strikethrough, monospace, text repeater, emoji picker">
+  <meta name="author" content="WhatsFormat">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="WhatsFormat — WhatsApp Text Toolkit">
+  <meta property="og:description" content="Format your WhatsApp messages with bold, italic, strikethrough, fancy text, blank messages, emojis & more — all in one place.">
+  <meta property="og:url" content="https://whatsformat.com">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WhatsFormat — WhatsApp Text Toolkit">
+  <meta name="twitter:description" content="Format your WhatsApp messages with bold, italic, strikethrough, fancy text, blank messages, emojis & more.">
+
+  <title>WhatsFormat — WhatsApp Text Toolkit | Free Online Formatter</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/tabs.css">
+
+  <!-- Google AdSense - Add your AdSense code here -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.627.616l4.584-1.393A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.583l-.376-.234-2.726.828.751-2.823-.248-.39A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      WhatsFormat
+    </div>
+    <h1>Format your<br><span>WhatsApp messages</span></h1>
+    <p>Choose a tool below and start styling your messages</p>
+  </header>
+
+  <!-- AdSense: Top Banner Ad (728x90 or responsive) -->
+  <!-- <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXX"
+       data-ad-slot="XXXXXXXXXX"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+
+  <!-- TAB NAVIGATION -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="formatter">
+      <span class="tab-icon">✦</span>
+      <span class="tab-label">Text Formatter</span>
+    </button>
+    <button class="tab-btn" data-tab="fancy">
+      <span class="tab-icon">🔤</span>
+      <span class="tab-label">Fancy Text</span>
+    </button>
+    <button class="tab-btn" data-tab="blank">
+      <span class="tab-icon">👻</span>
+      <span class="tab-label">Blank Message</span>
+    </button>
+    <button class="tab-btn" data-tab="repeater">
+      <span class="tab-icon">🔁</span>
+      <span class="tab-label">Text Repeater</span>
+    </button>
+    <button class="tab-btn" data-tab="reverse">
+      <span class="tab-icon">🔄</span>
+      <span class="tab-label">Reverse & Flip</span>
+    </button>
+    <button class="tab-btn" data-tab="emoji">
+      <span class="tab-icon">😎</span>
+      <span class="tab-label">Emojis</span>
+    </button>
+    <button class="tab-btn" data-tab="counter">
+      <span class="tab-icon">📊</span>
+      <span class="tab-label">Counter</span>
+    </button>
+  </nav>
+  <div class="tab-scroll-hint" id="tabScrollHint">← Swipe to see more tools →</div>
+
+  <!-- TAB CONTENT -->
+  <div class="tab-content">
+
+    <!-- ===================== -->
+    <!-- TEXT FORMATTER TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane active" id="tab-formatter">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-green">✦</div>
+          <div>
+            <h2>Text Formatter</h2>
+            <p>Apply WhatsApp formatting — see live preview</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>How to use:</strong> Type your message below, then select the text you want to format and click any formatting button. You can also click buttons without selecting text to format the entire message. The formatted output is ready to copy and paste into WhatsApp!
+        </div>
+
+        <div class="format-toolbar">
+          <button class="btn btn-format" onclick="wrapText('*')" title="Bold"><b>B</b></button>
+          <button class="btn btn-format" onclick="wrapText('_')" title="Italic"><i>I</i></button>
+          <button class="btn btn-format" onclick="wrapText('~')" title="Strikethrough"><s>S</s></button>
+          <button class="btn btn-format" onclick="wrapText('```')" title="Monospace">{ }</button>
+          <button class="btn btn-format" onclick="insertText('> ')" title="Quote">❝</button>
+          <button class="btn btn-format" onclick="insertBulletList()" title="Bullet List">• List</button>
+          <button class="btn btn-format" onclick="insertNumberedList()" title="Numbered List">1. List</button>
+        </div>
+
+        <div class="input-group">
+          <label for="formatInput">Your message</label>
+          <textarea id="formatInput" placeholder="Type your message here... Select text and click a format button above" oninput="updateFormatPreview()"></textarea>
+        </div>
+
+        <div class="output-label">Formatted output (copy this)</div>
+        <div class="output-box" id="formatOutput"></div>
+
+        <div class="output-label">WhatsApp Preview</div>
+        <div class="wa-preview" id="formatPreviewBubble">
+          <span id="formatPreview" style="color:rgba(255,255,255,0.45); font-style:italic;">Your message preview...</span>
+        </div>
+
+        <div class="btn-row" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="copyText('formatOutput')">📋 Copy Formatted Text</button>
+          <button class="btn btn-secondary" onclick="clearField('formatInput'); updateFormatPreview();">✕ Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- FANCY TEXT TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane" id="tab-fancy">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-yellow">🔤</div>
+          <div>
+            <h2>Fancy Text Generator</h2>
+            <p>Convert your text into stylish Unicode fonts</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>What is this?</strong> Transform your plain text into 15+ unique Unicode fonts! These stylish fonts work everywhere - WhatsApp, Instagram, Twitter, Facebook, and more. Simply type your text and click any style to copy it instantly.
+        </div>
+
+        <div class="input-group">
+          <label for="fancyInput">Your text</label>
+          <input type="text" id="fancyInput" placeholder="Type something cool..." oninput="generateFancyText()">
+        </div>
+
+        <div class="fancy-grid" id="fancyGrid">
+          <!-- filled by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- BLANK MESSAGE TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane" id="tab-blank">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-teal">👻</div>
+          <div>
+            <h2>Blank Message Generator</h2>
+            <p>Send invisible / empty messages to WhatsApp</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>What is this?</strong> Creates invisible characters that appear as blank messages in WhatsApp. Perfect for creating space in group chats or sending "silent" messages. The text is there, but completely invisible!
+        </div>
+
+        <div class="blank-options">
+          <div class="input-group" style="margin-bottom:0">
+            <label for="blankCount">How many lines</label>
+            <input type="number" id="blankCount" value="1" min="1" max="100">
+          </div>
+          <button class="btn btn-primary" onclick="generateBlank()" style="margin-top:auto;">Generate</button>
+          <button class="btn btn-primary" onclick="copyText('blankOutput')" style="margin-top:auto;">📋 Copy</button>
+        </div>
+
+        <div class="output-label">Invisible text (it's there — trust us)</div>
+        <div class="output-box" id="blankOutput" style="min-height:40px;"></div>
+        <div class="char-count" id="blankCharCount"></div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- TEXT REPEATER TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane" id="tab-repeater">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-red">🔁</div>
+          <div>
+            <h2>Text Repeater</h2>
+            <p>Repeat text or emojis multiple times</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>How it works:</strong> Enter any text or emoji, choose how many times to repeat it (up to 5000), and decide if you want each repetition on a new line. Great for creating emoji chains, emphasis text, or decorative patterns!
+        </div>
+
+        <div class="inline-row">
+          <div class="input-group">
+            <label for="repeatInput">Text / Emoji</label>
+            <input type="text" id="repeatInput" placeholder="e.g. 🎉 or Hello ">
+          </div>
+          <div class="input-group" style="flex:0 0 100px;">
+            <label for="repeatCount">Times</label>
+            <input type="number" id="repeatCount" value="10" min="1" max="5000">
+          </div>
+          <div class="input-group" style="flex:0 0 auto;">
+            <label>&nbsp;</label>
+            <div style="display:flex; gap:0.35rem;">
+              <label style="display:flex; align-items:center; gap:4px; font-size:0.8rem; cursor:pointer; text-transform:none; letter-spacing:0;">
+                <input type="checkbox" id="repeatNewline"> New line
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="repeatText()">Generate</button>
+          <button class="btn btn-primary" onclick="copyText('repeatOutput')">📋 Copy</button>
+        </div>
+
+        <div class="output-label">Result</div>
+        <div class="output-box" id="repeatOutput" style="max-height:200px; overflow-y:auto;"></div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- REVERSE & FLIP TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane" id="tab-reverse">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-blue">🔄</div>
+          <div>
+            <h2>Reverse & Flip Text</h2>
+            <p>Mirror, reverse, or flip your text upside down</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>Two effects available:</strong> <em>Reversed</em> mirrors your text backwards (last letter first), while <em>Upside Down</em> flips each character and reverses the order. Both create fun, eye-catching effects for messages!
+        </div>
+
+        <div class="input-group">
+          <label for="reverseInput">Your text</label>
+          <input type="text" id="reverseInput" placeholder="Type anything..." oninput="updateReverse()">
+        </div>
+
+        <div class="mirror-outputs">
+          <div>
+            <div class="output-label">Reversed</div>
+            <div class="output-box" id="reversedOutput" style="min-height:40px; cursor:pointer;" onclick="copyText('reversedOutput')"></div>
+          </div>
+          <div>
+            <div class="output-label">Upside Down</div>
+            <div class="output-box" id="flippedOutput" style="min-height:40px; cursor:pointer;" onclick="copyText('flippedOutput')"></div>
+          </div>
+        </div>
+        <div class="char-count" style="margin-top:0.5rem;">Click any output to copy</div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- EMOJI PICKER TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane" id="tab-emoji">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-yellow">😎</div>
+          <div>
+            <h2>Emoji Picker</h2>
+            <p>Browse and copy emojis — click to add, then copy</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>Quick emoji access:</strong> Browse 200+ emojis organized into 8 categories. Click on any emoji to add it to your collection below, then copy all selected emojis at once. Perfect for creating emoji combinations or finding that perfect reaction!
+        </div>
+
+        <div class="emoji-categories" id="emojiCategories"></div>
+        <div class="emoji-grid" id="emojiGrid"></div>
+
+        <div class="output-label">Your emoji collection</div>
+        <div class="output-box" id="emojiOutput" style="min-height:50px; font-size:1.4rem;"></div>
+
+        <div class="btn-row" style="margin-top:0.75rem;">
+          <button class="btn btn-primary" onclick="copyText('emojiOutput')">📋 Copy Emojis</button>
+          <button class="btn btn-secondary" onclick="document.getElementById('emojiOutput').textContent=''; ">✕ Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- COUNTER TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane" id="tab-counter">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-white">📊</div>
+          <div>
+            <h2>Character & Word Counter</h2>
+            <p>Count characters, words, lines, and emojis in your text</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>Analyze your text:</strong> Paste any text to instantly see detailed statistics. Track character count (useful for Twitter/SMS limits), word count (for essays/articles), line count, and even emoji count. Updates in real-time as you type or paste!
+        </div>
+
+        <div class="input-group">
+          <label for="counterInput">Paste your text</label>
+          <textarea id="counterInput" placeholder="Paste any text here to analyze it..." oninput="updateCounter()"></textarea>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap:0.5rem; margin-top:0.5rem;">
+          <div class="stat-box">
+            <div class="output-label">Characters</div>
+            <div style="font-family:'Space Mono',monospace; font-size:1.3rem; color:var(--green);" id="statChars">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="output-label">Words</div>
+            <div style="font-family:'Space Mono',monospace; font-size:1.3rem; color:var(--teal);" id="statWords">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="output-label">Lines</div>
+            <div style="font-family:'Space Mono',monospace; font-size:1.3rem; color:var(--yellow);" id="statLines">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="output-label">Emojis</div>
+            <div style="font-family:'Space Mono',monospace; font-size:1.3rem; color:var(--red);" id="statEmojis">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AdSense: Bottom Ad -->
+  <!-- <ins class="adsbygoogle"
+       style="display:block; margin: 2rem 0;"
+       data-ad-client="ca-pub-XXXXXXXXXX"
+       data-ad-slot="XXXXXXXXXX"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+
+  <!-- FOOTER -->
+  <footer>
+    Made with ☕ for WhatsApp users everywhere<br>
+    <span style="opacity:0.5;">WhatsFormat — open-source & free to use</span><br>
+    <div style="margin-top: 1rem;">
+      <a href="privacy.html" style="margin: 0 0.5rem;">Privacy Policy</a> |
+      <a href="terms.html" style="margin: 0 0.5rem;">Terms of Service</a> |
+      <a href="about.html" style="margin: 0 0.5rem;">About</a>
+    </div>
+  </footer>
+
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✓ Copied to clipboard!</div>
+
+<!-- Scripts (Bundled for compatibility) -->
+<script src="js/app-bundle.js"></script>
+
+</body>
+</html>
