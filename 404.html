@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YTQW8NG2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8YTQW8NG2R');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1485600963253811"
+       crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Page not found — WhatsFormat">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Page Not Found — WhatsFormat</title>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://whatsformat.com/404.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Cookie Notice -->
+  <script src="js/cookie-consent.js"></script>
+
+  <!-- Theme (blocking — prevents FOUC) -->
+  <script src="js/theme-init.js"></script>
+
+  <style>
+    .error-page {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 4rem 1.25rem;
+      text-align: center;
+    }
+
+    .error-code {
+      font-family: 'Space Mono', monospace;
+      font-size: 6rem;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .error-page h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .error-page p {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .home-btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: var(--green);
+      color: #000;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .home-btn:hover {
+      background: #2ee872;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Theme Toggle -->
+<button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme">
+  <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+</button>
+
+<div class="container error-page">
+  <div class="error-code">404</div>
+  <h1>Page Not Found</h1>
+  <p>The page you're looking for doesn't exist or has been moved. Head back to the homepage to format your WhatsApp messages.</p>
+  <a href="index.html" class="home-btn">Back to Home</a>
+
+  <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-dark); font-size: 0.9rem;">
+    <p><a href="index.html" style="color: var(--green); text-decoration: none;">Home</a> |
+       <a href="blog.html" style="color: var(--green); text-decoration: none;">Blog</a> |
+       <a href="privacy.html" style="color: var(--green); text-decoration: none;">Privacy Policy</a> |
+       <a href="terms.html" style="color: var(--green); text-decoration: none;">Terms of Service</a> |
+       <a href="about.html" style="color: var(--green); text-decoration: none;">About</a></p>
+    <p style="margin-top: 1rem;">&copy; 2026 WhatsFormat. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent-banner" class="cookie-consent">
+  <p>We use cookies for analytics and ads. See our <a href="privacy.html">Privacy Policy</a>.</p>
+  <div class="cookie-consent-buttons">
+    <button id="cookie-dismiss">Got it</button>
+  </div>
+</div>
+
+<!-- Theme toggle wiring -->
+<script>
+(function() {
+  var moonPath = 'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
+  var sunPaths = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+
+  function setIcon(theme) {
+    var el = document.getElementById('theme-icon');
+    if (!el) return;
+    el.innerHTML = theme === 'dark' ? sunPaths : '<path d="' + moonPath + '"/>';
+  }
+
+  setIcon(window.__whatsformatTheme.get());
+
+  document.getElementById('theme-toggle').addEventListener('click', function() {
+    window.__whatsformatTheme.toggle();
+  });
+
+  document.addEventListener('themechange', function(e) {
+    setIcon(e.detail.theme);
+  });
+
+  requestAnimationFrame(function() {
+    document.documentElement.setAttribute('data-theme-ready', '');
+  });
+})();
+</script>
+
+</body>
+</html>
