@@ -492,7 +492,7 @@
 
       console.log('✓ WhatsFormat loaded successfully!');
     } catch (error) {
-      console.error('❌ Error initializing WhatStyle:', error);
+      console.error('❌ Error initializing WhatsFormat:', error);
       showToast('Error loading app. Please refresh the page.');
     }
   });

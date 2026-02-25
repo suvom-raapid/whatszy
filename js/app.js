@@ -77,7 +77,7 @@ window.addEmoji = addEmoji;
 // INITIALIZE APPLICATION
 // =============================
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('🚀 Initializing WhatStyle...');
+  console.log('🚀 Initializing WhatsFormat...');
 
   try {
     // Initialize tab switching
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('✓ WhatsFormat loaded successfully!');
   } catch (error) {
-    console.error('❌ Error initializing WhatStyle:', error);
+    console.error('❌ Error initializing WhatsFormat:', error);
     showToast('Error loading app. Please refresh the page.');
   }
 });
