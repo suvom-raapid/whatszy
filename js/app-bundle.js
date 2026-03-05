@@ -685,6 +685,45 @@
   // INITIALIZE
   // =============================
 
+  // Bind event listeners programmatically for reliability
+  function bindToolEvents() {
+    // Small Text
+    var smallInput = document.getElementById('smallInput');
+    if (smallInput) smallInput.addEventListener('input', generateSmallText);
+
+    // Zalgo Text
+    var zalgoInput = document.getElementById('zalgoInput');
+    if (zalgoInput) zalgoInput.addEventListener('input', generateZalgo);
+    var zalgoIntensity = document.getElementById('zalgoIntensity');
+    if (zalgoIntensity) {
+      zalgoIntensity.addEventListener('input', generateZalgo);
+      zalgoIntensity.addEventListener('change', generateZalgo);
+    }
+
+    // Text to Emoji
+    var textEmojiInput = document.getElementById('textEmojiInput');
+    if (textEmojiInput) textEmojiInput.addEventListener('input', generateTextEmoji);
+
+    // Case Converter
+    var caseInput = document.getElementById('caseInput');
+    if (caseInput) caseInput.addEventListener('input', updateCasePreview);
+
+    // WA Link
+    var walinkPhone = document.getElementById('walinkPhone');
+    if (walinkPhone) walinkPhone.addEventListener('input', generateWaLink);
+    var walinkMessage = document.getElementById('walinkMessage');
+    if (walinkMessage) walinkMessage.addEventListener('input', generateWaLink);
+
+    // Case Converter buttons (event delegation)
+    var caseButtons = document.getElementById('caseButtons');
+    if (caseButtons) {
+      caseButtons.addEventListener('click', function(e) {
+        var btn = e.target.closest('[data-case]');
+        if (btn) convertCase(btn.dataset.case);
+      });
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Initializing WhatsFormat...');
 
@@ -697,6 +736,9 @@
 
       initEmojiPicker();
       console.log('✓ Emoji picker initialized');
+
+      bindToolEvents();
+      console.log('✓ Tool events bound');
 
       console.log('✓ WhatsFormat loaded successfully!');
     } catch (error) {

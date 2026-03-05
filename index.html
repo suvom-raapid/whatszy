@@ -46,8 +46,8 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/tabs.css">
+  <link rel="stylesheet" href="css/styles.css?v=2.1">
+  <link rel="stylesheet" href="css/tabs.css?v=2.1">
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1485600963253811"
@@ -473,13 +473,13 @@
           <textarea id="caseInput" placeholder="Type or paste your text here..." oninput="updateCasePreview()"></textarea>
         </div>
 
-        <div class="format-toolbar" style="flex-wrap:wrap;">
-          <button class="btn btn-format" onclick="convertCase('upper')" title="UPPERCASE">ABC</button>
-          <button class="btn btn-format" onclick="convertCase('lower')" title="lowercase">abc</button>
-          <button class="btn btn-format" onclick="convertCase('title')" title="Title Case">Abc</button>
-          <button class="btn btn-format" onclick="convertCase('sentence')" title="Sentence case">Abc.</button>
-          <button class="btn btn-format" onclick="convertCase('alternating')" title="aLtErNaTiNg">aLt</button>
-          <button class="btn btn-format" onclick="convertCase('inverse')" title="iNVERSE cASE">iNV</button>
+        <div class="format-toolbar" id="caseButtons" style="flex-wrap:wrap;">
+          <button class="btn btn-format" data-case="upper" onclick="convertCase('upper')" title="UPPERCASE">ABC</button>
+          <button class="btn btn-format" data-case="lower" onclick="convertCase('lower')" title="lowercase">abc</button>
+          <button class="btn btn-format" data-case="title" onclick="convertCase('title')" title="Title Case">Abc</button>
+          <button class="btn btn-format" data-case="sentence" onclick="convertCase('sentence')" title="Sentence case">Abc.</button>
+          <button class="btn btn-format" data-case="alternating" onclick="convertCase('alternating')" title="aLtErNaTiNg">aLt</button>
+          <button class="btn btn-format" data-case="inverse" onclick="convertCase('inverse')" title="iNVERSE cASE">iNV</button>
         </div>
 
         <div class="output-label">Converted text</div>
@@ -639,7 +639,7 @@
 <div class="toast" id="toast">✓ Copied to clipboard!</div>
 
 <!-- Scripts (Bundled for compatibility) -->
-<script src="js/app-bundle.js"></script>
+<script src="js/app-bundle.js?v=2.1"></script>
 
 <!-- Theme toggle wiring -->
 <script>
