@@ -46,8 +46,8 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=2.1">
-  <link rel="stylesheet" href="css/tabs.css?v=2.1">
+  <link rel="stylesheet" href="css/styles.css?v=2.2">
+  <link rel="stylesheet" href="css/tabs.css?v=2.2">
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1485600963253811"
@@ -193,6 +193,9 @@
           <button class="btn btn-primary" onclick="copyText('formatOutput')">📋 Copy Formatted Text</button>
           <button class="btn btn-secondary" onclick="clearField('formatInput'); updateFormatPreview();">✕ Clear</button>
         </div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> Combine formats — wrap text in <em>*_bold italic_*</em> for <b><i>bold italic</i></b>. Use monospace <em>```code```</em> for sharing code snippets. Bulleted and numbered lists work in both personal and group chats.
+        </div>
       </div>
     </div>
 
@@ -220,6 +223,9 @@
 
         <div class="fancy-grid" id="fancyGrid">
           <!-- filled by JS -->
+        </div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> Fancy text uses Unicode characters, not regular fonts — so they work everywhere text is allowed. Try combining fancy text with WhatsApp formatting (*bold*, _italic_) for double the style impact.
         </div>
       </div>
     </div>
@@ -253,6 +259,9 @@
         <div class="output-label">Invisible text (it's there — trust us)</div>
         <div class="output-box" id="blankOutput" style="min-height:40px;"></div>
         <div class="char-count" id="blankCharCount"></div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> Use blank messages to push old pins out of view in group chats, create dramatic pauses in conversations, or test if someone has read receipts on. Send 1 line for subtle, 10+ for a full empty screen.
+        </div>
       </div>
     </div>
 
@@ -299,6 +308,9 @@
 
         <div class="output-label">Result</div>
         <div class="output-box" id="repeatOutput" style="max-height:200px; overflow-y:auto;"></div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> Create emoji walls by repeating a single emoji 50+ times. Use "New line" mode to spam-style repeat a phrase. WhatsApp has a ~65,000 character limit per message — the repeater caps at 5,000 repetitions to stay safe.
+        </div>
       </div>
     </div>
 
@@ -335,6 +347,9 @@
           </div>
         </div>
         <div class="char-count" style="margin-top:0.5rem;">Click any output to copy</div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> Reversed text works great for mirror-effect usernames. Upside-down text is perfect for quirky status updates and surprising friends in group chats. Both effects work on any platform that supports Unicode.
+        </div>
       </div>
     </div>
 
@@ -364,6 +379,9 @@
         <div class="btn-row" style="margin-top:0.75rem;">
           <button class="btn btn-primary" onclick="copyText('emojiOutput')">📋 Copy Emojis</button>
           <button class="btn btn-secondary" onclick="document.getElementById('emojiOutput').textContent=''; ">✕ Clear</button>
+        </div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> Build emoji combos by clicking emojis in sequence — try face + hand + object for creative storytelling. Mix emojis with formatted text for messages that really stand out in group chats.
         </div>
       </div>
     </div>
@@ -408,6 +426,9 @@
             <div style="font-family:'Space Mono',monospace; font-size:1.3rem; color:var(--red);" id="statEmojis">0</div>
           </div>
         </div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> WhatsApp allows ~65,000 characters per message and 700 characters in status updates. Use this counter to check your text length before posting. Each emoji counts as 2 characters.
+        </div>
       </div>
     </div>
 
@@ -448,6 +469,9 @@
           <button class="btn btn-secondary" onclick="testWaLink()">↗ Test Link</button>
           <button class="btn btn-secondary" onclick="clearField('walinkPhone'); clearField('walinkMessage'); generateWaLink();">✕ Clear</button>
         </div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> Always include the country code (e.g., 91 for India, 1 for US). Add a pre-filled message to boost response rates on business links. Place these links in your Instagram bio, email signature, or website contact page.
+        </div>
       </div>
     </div>
 
@@ -465,7 +489,7 @@
         </div>
 
         <div class="help-section">
-          <strong>How to use:</strong> Type or paste your text below and click any case button to convert. The result updates instantly and is ready to copy.
+          <strong>How to use:</strong> Type or paste your text below — all 6 case variations appear instantly. Click any result to copy it.
         </div>
 
         <div class="input-group">
@@ -473,21 +497,14 @@
           <textarea id="caseInput" placeholder="Type or paste your text here..." oninput="updateCasePreview()"></textarea>
         </div>
 
-        <div class="format-toolbar" id="caseButtons" style="flex-wrap:wrap;">
-          <button class="btn btn-format" data-case="upper" onclick="convertCase('upper')" title="UPPERCASE">ABC</button>
-          <button class="btn btn-format" data-case="lower" onclick="convertCase('lower')" title="lowercase">abc</button>
-          <button class="btn btn-format" data-case="title" onclick="convertCase('title')" title="Title Case">Abc</button>
-          <button class="btn btn-format" data-case="sentence" onclick="convertCase('sentence')" title="Sentence case">Abc.</button>
-          <button class="btn btn-format" data-case="alternating" onclick="convertCase('alternating')" title="aLtErNaTiNg">aLt</button>
-          <button class="btn btn-format" data-case="inverse" onclick="convertCase('inverse')" title="iNVERSE cASE">iNV</button>
-        </div>
-
-        <div class="output-label">Converted text</div>
-        <div class="output-box" id="caseOutput" style="min-height:60px;"></div>
+        <div class="output-label">All variations — click to copy</div>
+        <div class="fancy-grid" id="caseResultsGrid"></div>
 
         <div class="btn-row" style="margin-top:1rem;">
-          <button class="btn btn-primary" onclick="copyText('caseOutput')">📋 Copy</button>
-          <button class="btn btn-secondary" onclick="clearField('caseInput'); document.getElementById('caseOutput').textContent='';">✕ Clear</button>
+          <button class="btn btn-secondary" onclick="clearField('caseInput'); document.getElementById('caseResultsGrid').innerHTML='';">✕ Clear</button>
+        </div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> Use UPPERCASE for emphasis, Title Case for headings, and aLtErNaTiNg case for sarcasm or playful messages. Sentence case is perfect for cleaning up text copied from ALL CAPS sources.
         </div>
       </div>
     </div>
@@ -506,7 +523,8 @@
         </div>
 
         <div class="help-section">
-          <strong>What is this?</strong> Transform your text into tiny Unicode superscript and subscript characters. Works on WhatsApp, Instagram, Twitter, and more. Not all characters have small versions — unsupported ones stay normal.
+          <strong>What is this?</strong> Transform your text into tiny Unicode superscript and subscript characters. Works on WhatsApp, Instagram, Twitter, and more.<br><br>
+          <strong>Note:</strong> <em>Superscript</em> covers most letters (a-z) except q. <em>Subscript</em> only has ~17 letters in Unicode (a, e, h, i, j, k, l, m, n, o, p, r, s, t, u, v, x) — unsupported characters stay normal size.
         </div>
 
         <div class="input-group">
@@ -525,6 +543,9 @@
           </div>
         </div>
         <div class="char-count" style="margin-top:0.5rem;">Click any output to copy</div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> Superscript works for most letters and all numbers — great for footnote-style annotations like "see noteˡ". Subscript is limited by Unicode (only ~17 letters supported) and works best for chemical formulas like H₂O or math notation.
+        </div>
       </div>
     </div>
 
@@ -565,6 +586,9 @@
           <button class="btn btn-primary" onclick="copyText('zalgoOutput')">📋 Copy</button>
           <button class="btn btn-secondary" onclick="clearField('zalgoInput'); document.getElementById('zalgoOutput').textContent='';">✕ Clear</button>
         </div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> Mild intensity works best for readable creepy text. Extreme mode creates maximum visual chaos — use sparingly. Zalgo text may display differently across devices, so test before sending important messages.
+        </div>
       </div>
     </div>
 
@@ -596,6 +620,9 @@
         <div class="btn-row" style="margin-top:1rem;">
           <button class="btn btn-primary" onclick="copyText('textEmojiOutput')">📋 Copy</button>
           <button class="btn btn-secondary" onclick="clearField('textEmojiInput'); document.getElementById('textEmojiOutput').textContent='';">✕ Clear</button>
+        </div>
+        <div class="help-section" style="margin-top:1.25rem; margin-bottom:0;">
+          <strong>Pro Tips:</strong> Keep it short — 1-3 words work best since each letter becomes a large emoji block. Great for group chat announcements like "HI" or "SALE". Numbers become keycap emojis (1️⃣ 2️⃣ 3️⃣) for extra flair.
         </div>
       </div>
     </div>
@@ -639,7 +666,7 @@
 <div class="toast" id="toast">✓ Copied to clipboard!</div>
 
 <!-- Scripts (Bundled for compatibility) -->
-<script src="js/app-bundle.js?v=2.1"></script>
+<script src="js/app-bundle.js?v=2.2"></script>
 
 <!-- Theme toggle wiring -->
 <script>

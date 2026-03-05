@@ -488,50 +488,69 @@
   // TEXT CASE CONVERTER
   // =============================
 
+  function applyCaseType(text, type) {
+    switch (type) {
+      case 'upper': return text.toUpperCase();
+      case 'lower': return text.toLowerCase();
+      case 'title': return text.toLowerCase().replace(/(?:^|\s|[-/])\S/g, function(c) { return c.toUpperCase(); });
+      case 'sentence': return text.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, function(c) { return c.toUpperCase(); });
+      case 'alternating':
+        var idx = 0;
+        return [...text].map(function(c) {
+          if (/[a-zA-Z]/.test(c)) return (idx++ % 2 === 0) ? c.toLowerCase() : c.toUpperCase();
+          return c;
+        }).join('');
+      case 'inverse':
+        return [...text].map(function(c) {
+          return c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase();
+        }).join('');
+      default: return text;
+    }
+  }
+
   function convertCase(type) {
     var text = document.getElementById('caseInput').value;
     if (!text) {
       showToast('Enter some text first!');
       return;
     }
-
-    var result = '';
-    switch (type) {
-      case 'upper':
-        result = text.toUpperCase();
-        break;
-      case 'lower':
-        result = text.toLowerCase();
-        break;
-      case 'title':
-        result = text.toLowerCase().replace(/(?:^|\s|[-/])\S/g, function(c) { return c.toUpperCase(); });
-        break;
-      case 'sentence':
-        result = text.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, function(c) { return c.toUpperCase(); });
-        break;
-      case 'alternating':
-        var idx = 0;
-        result = [...text].map(function(c) {
-          if (/[a-zA-Z]/.test(c)) {
-            return (idx++ % 2 === 0) ? c.toLowerCase() : c.toUpperCase();
-          }
-          return c;
-        }).join('');
-        break;
-      case 'inverse':
-        result = [...text].map(function(c) {
-          if (c === c.toUpperCase()) return c.toLowerCase();
-          return c.toUpperCase();
-        }).join('');
-        break;
-    }
-
-    document.getElementById('caseOutput').textContent = result;
+    document.getElementById('caseOutput').textContent = applyCaseType(text, type);
   }
 
   function updateCasePreview() {
-    // Clear output when input changes
-    document.getElementById('caseOutput').textContent = '';
+    var text = document.getElementById('caseInput').value;
+    var grid = document.getElementById('caseResultsGrid');
+    if (!text) {
+      grid.innerHTML = '';
+      return;
+    }
+    var types = [
+      { key: 'upper', label: 'UPPERCASE' },
+      { key: 'lower', label: 'lowercase' },
+      { key: 'title', label: 'Title Case' },
+      { key: 'sentence', label: 'Sentence case' },
+      { key: 'alternating', label: 'aLtErNaTiNg' },
+      { key: 'inverse', label: 'iNVERSE' }
+    ];
+    grid.innerHTML = types.map(function(t) {
+      var result = applyCaseType(text, t.key);
+      return '<div class="fancy-option" onclick="copyTextDirect(\'' + t.key + '\')" data-case-result="' + t.key + '">' +
+        '<div><div class="fancy-label">' + t.label + '</div><div class="preview">' + escapeHtml(result) + '</div></div>' +
+        '<div class="copy-icon">COPY</div></div>';
+    }).join('');
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function copyTextDirect(type) {
+    var text = document.getElementById('caseInput').value;
+    if (!text) return;
+    var result = applyCaseType(text, type);
+    navigator.clipboard.writeText(result).then(function() {
+      showToast('Copied!');
+    });
   }
 
   // =============================
@@ -680,6 +699,7 @@
   window.generateSmallText = generateSmallText;
   window.generateZalgo = generateZalgo;
   window.generateTextEmoji = generateTextEmoji;
+  window.copyTextDirect = copyTextDirect;
 
   // =============================
   // INITIALIZE
@@ -713,15 +733,6 @@
     if (walinkPhone) walinkPhone.addEventListener('input', generateWaLink);
     var walinkMessage = document.getElementById('walinkMessage');
     if (walinkMessage) walinkMessage.addEventListener('input', generateWaLink);
-
-    // Case Converter buttons (event delegation)
-    var caseButtons = document.getElementById('caseButtons');
-    if (caseButtons) {
-      caseButtons.addEventListener('click', function(e) {
-        var btn = e.target.closest('[data-case]');
-        if (btn) convertCase(btn.dataset.case);
-      });
-    }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
