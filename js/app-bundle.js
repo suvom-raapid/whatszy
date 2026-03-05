@@ -453,6 +453,207 @@
   }
 
   // =============================
+  // WHATSAPP LINK GENERATOR
+  // =============================
+
+  function generateWaLink() {
+    var phone = (document.getElementById('walinkPhone').value || '').replace(/[^0-9]/g, '');
+    var message = document.getElementById('walinkMessage').value || '';
+    var output = document.getElementById('walinkOutput');
+
+    if (!phone) {
+      output.textContent = 'Enter a phone number above';
+      return;
+    }
+
+    var url = 'https://wa.me/' + phone;
+    if (message.trim()) {
+      url += '?text=' + encodeURIComponent(message);
+    }
+
+    output.textContent = url;
+  }
+
+  function testWaLink() {
+    var output = document.getElementById('walinkOutput');
+    var url = output.textContent;
+    if (url && url.startsWith('https://wa.me/')) {
+      window.open(url, '_blank');
+    } else {
+      showToast('Generate a link first!');
+    }
+  }
+
+  // =============================
+  // TEXT CASE CONVERTER
+  // =============================
+
+  function convertCase(type) {
+    var text = document.getElementById('caseInput').value;
+    if (!text) {
+      showToast('Enter some text first!');
+      return;
+    }
+
+    var result = '';
+    switch (type) {
+      case 'upper':
+        result = text.toUpperCase();
+        break;
+      case 'lower':
+        result = text.toLowerCase();
+        break;
+      case 'title':
+        result = text.toLowerCase().replace(/(?:^|\s|[-/])\S/g, function(c) { return c.toUpperCase(); });
+        break;
+      case 'sentence':
+        result = text.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, function(c) { return c.toUpperCase(); });
+        break;
+      case 'alternating':
+        var idx = 0;
+        result = [...text].map(function(c) {
+          if (/[a-zA-Z]/.test(c)) {
+            return (idx++ % 2 === 0) ? c.toLowerCase() : c.toUpperCase();
+          }
+          return c;
+        }).join('');
+        break;
+      case 'inverse':
+        result = [...text].map(function(c) {
+          if (c === c.toUpperCase()) return c.toLowerCase();
+          return c.toUpperCase();
+        }).join('');
+        break;
+    }
+
+    document.getElementById('caseOutput').textContent = result;
+  }
+
+  function updateCasePreview() {
+    // Clear output when input changes
+    document.getElementById('caseOutput').textContent = '';
+  }
+
+  // =============================
+  // SMALL TEXT GENERATOR
+  // =============================
+
+  var superscriptMap = {
+    'a':'ᵃ','b':'ᵇ','c':'ᶜ','d':'ᵈ','e':'ᵉ','f':'ᶠ','g':'ᵍ','h':'ʰ','i':'ⁱ','j':'ʲ',
+    'k':'ᵏ','l':'ˡ','m':'ᵐ','n':'ⁿ','o':'ᵒ','p':'ᵖ','r':'ʳ','s':'ˢ','t':'ᵗ','u':'ᵘ',
+    'v':'ᵛ','w':'ʷ','x':'ˣ','y':'ʸ','z':'ᶻ',
+    'A':'ᴬ','B':'ᴮ','D':'ᴰ','E':'ᴱ','G':'ᴳ','H':'ᴴ','I':'ᴵ','J':'ᴶ','K':'ᴷ','L':'ᴸ',
+    'M':'ᴹ','N':'ᴺ','O':'ᴼ','P':'ᴾ','R':'ᴿ','T':'ᵀ','U':'ᵁ','V':'ⱽ','W':'ᵂ',
+    '0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹',
+    '+':'⁺','-':'⁻','=':'⁼','(':'⁽',')':'⁾',' ':' '
+  };
+
+  var subscriptMap = {
+    'a':'ₐ','e':'ₑ','h':'ₕ','i':'ᵢ','j':'ⱼ','k':'ₖ','l':'ₗ','m':'ₘ','n':'ₙ','o':'ₒ',
+    'p':'ₚ','r':'ᵣ','s':'ₛ','t':'ₜ','u':'ᵤ','v':'ᵥ','x':'ₓ',
+    '0':'₀','1':'₁','2':'₂','3':'₃','4':'₄','5':'₅','6':'₆','7':'₇','8':'₈','9':'₉',
+    '+':'₊','-':'₋','=':'₌','(':'₍',')':'₎',' ':' '
+  };
+
+  function generateSmallText() {
+    var text = document.getElementById('smallInput').value;
+
+    var superResult = [...text].map(function(c) {
+      return superscriptMap[c] || superscriptMap[c.toLowerCase()] || c;
+    }).join('');
+
+    var subResult = [...text].map(function(c) {
+      return subscriptMap[c] || subscriptMap[c.toLowerCase()] || c;
+    }).join('');
+
+    document.getElementById('smallSuperOutput').textContent = superResult;
+    document.getElementById('smallSubOutput').textContent = subResult;
+  }
+
+  // =============================
+  // ZALGO / GLITCH TEXT
+  // =============================
+
+  var zalgoUp = [
+    '\u0300','\u0301','\u0302','\u0303','\u0304','\u0305','\u0306','\u0307','\u0308','\u0309',
+    '\u030A','\u030B','\u030C','\u030D','\u030E','\u030F','\u0310','\u0311','\u0312','\u0313',
+    '\u0314','\u0315','\u031A','\u033D','\u0340','\u0341','\u0342','\u0343','\u0344','\u0346',
+    '\u034A','\u034B','\u034C','\u0350','\u0351','\u0352','\u0357','\u0358','\u035B','\u035D',
+    '\u035E','\u0360','\u0361'
+  ];
+
+  var zalgoDown = [
+    '\u0316','\u0317','\u0318','\u0319','\u031C','\u031D','\u031E','\u031F','\u0320','\u0321',
+    '\u0322','\u0323','\u0324','\u0325','\u0326','\u0327','\u0328','\u0329','\u032A','\u032B',
+    '\u032C','\u032D','\u032E','\u032F','\u0330','\u0331','\u0332','\u0333','\u0339','\u033A',
+    '\u033B','\u033C','\u0345','\u0347','\u0348','\u0349','\u034D','\u034E','\u0353','\u0354',
+    '\u0355','\u0356','\u0359','\u035A','\u035C','\u035F','\u0362'
+  ];
+
+  var zalgoMid = [
+    '\u0334','\u0335','\u0336','\u0337','\u0338'
+  ];
+
+  function generateZalgo() {
+    var text = document.getElementById('zalgoInput').value;
+    var intensity = parseInt(document.getElementById('zalgoIntensity').value);
+    var labels = ['Mild', 'Medium', 'Extreme'];
+    document.getElementById('zalgoIntensityLabel').textContent = labels[intensity - 1] || 'Medium';
+
+    if (!text) {
+      document.getElementById('zalgoOutput').textContent = '';
+      return;
+    }
+
+    var counts = { 1: [1, 0, 1], 2: [3, 1, 3], 3: [8, 2, 8] };
+    var c = counts[intensity] || counts[2];
+
+    var result = [...text].map(function(ch) {
+      if (/\s/.test(ch)) return ch;
+      var out = ch;
+      for (var i = 0; i < c[0]; i++) out += zalgoUp[Math.floor(Math.random() * zalgoUp.length)];
+      for (var j = 0; j < c[1]; j++) out += zalgoMid[Math.floor(Math.random() * zalgoMid.length)];
+      for (var k = 0; k < c[2]; k++) out += zalgoDown[Math.floor(Math.random() * zalgoDown.length)];
+      return out;
+    }).join('');
+
+    document.getElementById('zalgoOutput').textContent = result;
+  }
+
+  // =============================
+  // TEXT TO EMOJI LETTERS
+  // =============================
+
+  function generateTextEmoji() {
+    var text = document.getElementById('textEmojiInput').value.toUpperCase();
+
+    var result = [...text].map(function(c) {
+      var code = c.charCodeAt(0);
+      // A-Z → Regional Indicator Symbols (🇦-🇿)
+      if (code >= 65 && code <= 90) {
+        return String.fromCodePoint(0x1F1E6 + code - 65);
+      }
+      // 0-9 → Keycap number emojis
+      if (c === '0') return '0\uFE0F\u20E3';
+      if (c === '1') return '1\uFE0F\u20E3';
+      if (c === '2') return '2\uFE0F\u20E3';
+      if (c === '3') return '3\uFE0F\u20E3';
+      if (c === '4') return '4\uFE0F\u20E3';
+      if (c === '5') return '5\uFE0F\u20E3';
+      if (c === '6') return '6\uFE0F\u20E3';
+      if (c === '7') return '7\uFE0F\u20E3';
+      if (c === '8') return '8\uFE0F\u20E3';
+      if (c === '9') return '9\uFE0F\u20E3';
+      if (c === ' ') return '  ';
+      if (c === '!') return '\u2757';
+      if (c === '?') return '\u2753';
+      return c;
+    }).join(' ');
+
+    document.getElementById('textEmojiOutput').textContent = result;
+  }
+
+  // =============================
   // EXPOSE GLOBAL FUNCTIONS
   // =============================
 
@@ -472,6 +673,13 @@
   window.updateCounter = updateCounter;
   window.switchEmojiCategory = switchEmojiCategory;
   window.addEmoji = addEmoji;
+  window.generateWaLink = generateWaLink;
+  window.testWaLink = testWaLink;
+  window.convertCase = convertCase;
+  window.updateCasePreview = updateCasePreview;
+  window.generateSmallText = generateSmallText;
+  window.generateZalgo = generateZalgo;
+  window.generateTextEmoji = generateTextEmoji;
 
   // =============================
   // INITIALIZE

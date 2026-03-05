@@ -13,8 +13,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="Format your WhatsApp messages with bold, italic, strikethrough, fancy text, blank messages, emojis & more — all in one place. Free online WhatsApp text formatter and styling tools.">
-  <meta name="keywords" content="WhatsApp, text formatter, fancy text, emoji, blank message, text tools, WhatsApp formatting, bold text, italic text, strikethrough, monospace, text repeater, emoji picker">
+  <meta name="description" content="Format your WhatsApp messages with bold, italic, strikethrough, fancy text, blank messages, emojis, WA link generator, case converter, small text, zalgo glitch text & more — all in one place. Free online WhatsApp text toolkit.">
+  <meta name="keywords" content="WhatsApp, text formatter, fancy text, emoji, blank message, text tools, WhatsApp formatting, bold text, italic text, strikethrough, monospace, text repeater, emoji picker, WhatsApp link generator, case converter, small text, zalgo text, emoji letters">
   <meta name="author" content="WhatsFormat">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
@@ -122,6 +122,26 @@
     <button class="tab-btn" data-tab="counter">
       <span class="tab-icon">📊</span>
       <span class="tab-label">Counter</span>
+    </button>
+    <button class="tab-btn" data-tab="walink">
+      <span class="tab-icon">🔗</span>
+      <span class="tab-label">WA Link</span>
+    </button>
+    <button class="tab-btn" data-tab="case">
+      <span class="tab-icon">Aa</span>
+      <span class="tab-label">Case Converter</span>
+    </button>
+    <button class="tab-btn" data-tab="small">
+      <span class="tab-icon">ᵃᵇ</span>
+      <span class="tab-label">Small Text</span>
+    </button>
+    <button class="tab-btn" data-tab="zalgo">
+      <span class="tab-icon">Z̸</span>
+      <span class="tab-label">Zalgo Text</span>
+    </button>
+    <button class="tab-btn" data-tab="textemoji">
+      <span class="tab-icon">🅰️</span>
+      <span class="tab-label">Emoji Letters</span>
     </button>
   </nav>
   <div class="tab-scroll-hint" id="tabScrollHint">← Swipe to see more tools →</div>
@@ -391,12 +411,201 @@
       </div>
     </div>
 
+    <!-- ===================== -->
+    <!-- WA LINK GENERATOR TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane" id="tab-walink">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-green">🔗</div>
+          <div>
+            <h2>WhatsApp Link Generator</h2>
+            <p>Create click-to-chat links — no number saving needed</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>What is this?</strong> Generate wa.me links that let anyone start a WhatsApp chat with you instantly. Perfect for business websites, social media bios, and email signatures. Just enter a phone number and optional message.
+        </div>
+
+        <div class="inline-row">
+          <div class="input-group">
+            <label for="walinkPhone">Phone number (with country code)</label>
+            <input type="tel" id="walinkPhone" placeholder="e.g. 919876543210" oninput="generateWaLink()">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="walinkMessage">Pre-filled message (optional)</label>
+          <input type="text" id="walinkMessage" placeholder="e.g. Hi, I'm interested in your services" oninput="generateWaLink()">
+        </div>
+
+        <div class="output-label">Your WhatsApp link</div>
+        <div class="output-box" id="walinkOutput" style="min-height:40px; word-break:break-all;"></div>
+
+        <div class="btn-row" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="copyText('walinkOutput')">📋 Copy Link</button>
+          <button class="btn btn-secondary" onclick="testWaLink()">↗ Test Link</button>
+          <button class="btn btn-secondary" onclick="clearField('walinkPhone'); clearField('walinkMessage'); generateWaLink();">✕ Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- CASE CONVERTER TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane" id="tab-case">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-teal">Aa</div>
+          <div>
+            <h2>Text Case Converter</h2>
+            <p>Convert text between different cases instantly</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>How to use:</strong> Type or paste your text below and click any case button to convert. The result updates instantly and is ready to copy.
+        </div>
+
+        <div class="input-group">
+          <label for="caseInput">Your text</label>
+          <textarea id="caseInput" placeholder="Type or paste your text here..." oninput="updateCasePreview()"></textarea>
+        </div>
+
+        <div class="format-toolbar" style="flex-wrap:wrap;">
+          <button class="btn btn-format" onclick="convertCase('upper')" title="UPPERCASE">ABC</button>
+          <button class="btn btn-format" onclick="convertCase('lower')" title="lowercase">abc</button>
+          <button class="btn btn-format" onclick="convertCase('title')" title="Title Case">Abc</button>
+          <button class="btn btn-format" onclick="convertCase('sentence')" title="Sentence case">Abc.</button>
+          <button class="btn btn-format" onclick="convertCase('alternating')" title="aLtErNaTiNg">aLt</button>
+          <button class="btn btn-format" onclick="convertCase('inverse')" title="iNVERSE cASE">iNV</button>
+        </div>
+
+        <div class="output-label">Converted text</div>
+        <div class="output-box" id="caseOutput" style="min-height:60px;"></div>
+
+        <div class="btn-row" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="copyText('caseOutput')">📋 Copy</button>
+          <button class="btn btn-secondary" onclick="clearField('caseInput'); document.getElementById('caseOutput').textContent='';">✕ Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- SMALL TEXT TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane" id="tab-small">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-yellow">ᵃᵇ</div>
+          <div>
+            <h2>Small Text Generator</h2>
+            <p>Convert text to tiny superscript characters</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>What is this?</strong> Transform your text into tiny Unicode superscript and subscript characters. Works on WhatsApp, Instagram, Twitter, and more. Not all characters have small versions — unsupported ones stay normal.
+        </div>
+
+        <div class="input-group">
+          <label for="smallInput">Your text</label>
+          <input type="text" id="smallInput" placeholder="Type something to make it tiny..." oninput="generateSmallText()">
+        </div>
+
+        <div class="mirror-outputs">
+          <div>
+            <div class="output-label">Superscript</div>
+            <div class="output-box" id="smallSuperOutput" style="min-height:40px; cursor:pointer;" onclick="copyText('smallSuperOutput')"></div>
+          </div>
+          <div>
+            <div class="output-label">Subscript</div>
+            <div class="output-box" id="smallSubOutput" style="min-height:40px; cursor:pointer;" onclick="copyText('smallSubOutput')"></div>
+          </div>
+        </div>
+        <div class="char-count" style="margin-top:0.5rem;">Click any output to copy</div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- ZALGO TEXT TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane" id="tab-zalgo">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-red">Z̸</div>
+          <div>
+            <h2>Zalgo / Glitch Text</h2>
+            <p>Create creepy corrupted text with combining characters</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>What is this?</strong> Zalgo text stacks Unicode combining diacritical marks on each character to create a glitchy, corrupted look. Adjust the intensity from mild to extreme. Works on WhatsApp, social media, and more.
+        </div>
+
+        <div class="input-group">
+          <label for="zalgoInput">Your text</label>
+          <input type="text" id="zalgoInput" placeholder="Type something creepy..." oninput="generateZalgo()">
+        </div>
+
+        <div class="input-group" style="margin-top:0.5rem;">
+          <label for="zalgoIntensity">Intensity</label>
+          <div style="display:flex; align-items:center; gap:1rem;">
+            <input type="range" id="zalgoIntensity" min="1" max="3" value="2" style="flex:1;" oninput="generateZalgo()">
+            <span id="zalgoIntensityLabel" style="font-family:'Space Mono',monospace; color:var(--text-dim); min-width:60px;">Medium</span>
+          </div>
+        </div>
+
+        <div class="output-label">Zalgo output</div>
+        <div class="output-box" id="zalgoOutput" style="min-height:60px; line-height:2.5;"></div>
+
+        <div class="btn-row" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="copyText('zalgoOutput')">📋 Copy</button>
+          <button class="btn btn-secondary" onclick="clearField('zalgoInput'); document.getElementById('zalgoOutput').textContent='';">✕ Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- TEXT TO EMOJI TAB -->
+    <!-- ===================== -->
+    <div class="tab-pane" id="tab-textemoji">
+      <div class="tool-card">
+        <div class="tool-header">
+          <div class="tool-icon icon-blue">🅰️</div>
+          <div>
+            <h2>Text to Emoji Letters</h2>
+            <p>Convert text into emoji letter blocks</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <strong>What is this?</strong> Convert your text into emoji letter blocks (regional indicator symbols). Letters become emoji squares like 🅰️🅱️. Numbers become keycap emojis. Great for eye-catching headers in group chats.
+        </div>
+
+        <div class="input-group">
+          <label for="textEmojiInput">Your text (A-Z, 0-9)</label>
+          <input type="text" id="textEmojiInput" placeholder="Type a word..." oninput="generateTextEmoji()">
+        </div>
+
+        <div class="output-label">Emoji letters</div>
+        <div class="output-box" id="textEmojiOutput" style="min-height:50px; font-size:1.4rem; letter-spacing:0.2rem;"></div>
+
+        <div class="btn-row" style="margin-top:1rem;">
+          <button class="btn btn-primary" onclick="copyText('textEmojiOutput')">📋 Copy</button>
+          <button class="btn btn-secondary" onclick="clearField('textEmojiInput'); document.getElementById('textEmojiOutput').textContent='';">✕ Clear</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ABOUT SECTION -->
   <section style="margin-top: 2.5rem; padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); line-height: 1.7;">
     <h2 style="font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--text);">What is WhatsFormat?</h2>
-    <p style="color: var(--text-dim); margin-bottom: 0.75rem;">WhatsFormat is a free online toolkit for formatting and styling your WhatsApp messages. Whether you need to make text <strong>bold</strong>, <em>italic</em>, or <s>strikethrough</s>, generate fancy Unicode fonts, send invisible blank messages, repeat text, flip words upside down, or pick the perfect emoji — everything is available right here in your browser.</p>
+    <p style="color: var(--text-dim); margin-bottom: 0.75rem;">WhatsFormat is a free online toolkit with 12 tools for formatting and styling your WhatsApp messages. Make text <strong>bold</strong>, <em>italic</em>, or <s>strikethrough</s>, generate fancy Unicode fonts, send invisible blank messages, repeat text, flip words upside down, pick emojis, create click-to-chat links, convert text case, generate tiny superscript text, create Zalgo glitch effects, or turn words into emoji letter blocks — everything right here in your browser.</p>
     <p style="color: var(--text-dim); margin-bottom: 0.75rem;">All processing happens locally on your device. We never see, store, or transmit your messages. No downloads, no sign-ups — just open the page and start formatting. WhatsFormat works on phones, tablets, and desktops.</p>
     <p style="color: var(--text-dim);">Looking for tips and guides? Visit our <a href="blog.html" style="color: var(--green);">blog</a> for articles on WhatsApp formatting tricks, emoji combinations, character limits, and more.</p>
   </section>
