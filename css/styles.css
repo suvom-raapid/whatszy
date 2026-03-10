@@ -838,3 +838,300 @@ html[data-theme-ready] .btn-format {
     justify-content: center;
   }
 }
+
+/* === BREADCRUMBS === */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb .separator {
+  color: var(--text-dark);
+  font-size: 0.7rem;
+}
+
+.breadcrumb .current {
+  color: var(--text-dim);
+}
+
+/* === RELATED TOOLS GRID === */
+.related-tools {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.related-tools h3 {
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.related-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.related-tool-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: block;
+}
+
+.related-tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--green-dim);
+}
+
+.related-tool-card .tool-emoji {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.related-tool-card .tool-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.related-tool-card .tool-desc {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+/* === FAQ ACCORDION === */
+.faq-section {
+  margin-top: 2.5rem;
+}
+
+.faq-section h3 {
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  background: var(--surface);
+  border: none;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.faq-question:hover {
+  background: var(--surface-2);
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.2rem;
+  color: var(--green);
+  flex-shrink: 0;
+  margin-left: 1rem;
+  transition: transform 0.3s;
+}
+
+.faq-item.open .faq-question::after {
+  content: '-';
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer-inner {
+  padding: 0 1.25rem 1rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 500px;
+}
+
+/* === HOW-TO STEPS === */
+.how-to-steps {
+  margin-top: 2rem;
+}
+
+.how-to-steps h3 {
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.how-to-steps ol {
+  list-style: none;
+  counter-reset: step-counter;
+  padding: 0;
+}
+
+.how-to-steps li {
+  counter-increment: step-counter;
+  padding: 0.75rem 0 0.75rem 3rem;
+  position: relative;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-bottom: 1px solid var(--border);
+}
+
+.how-to-steps li:last-child {
+  border-bottom: none;
+}
+
+.how-to-steps li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 28px;
+  height: 28px;
+  background: var(--green);
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* === RELATED ARTICLES === */
+.related-articles {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.related-articles h3 {
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.related-list {
+  list-style: none;
+  padding: 0;
+}
+
+.related-list li {
+  margin-bottom: 0.5rem;
+}
+
+.related-list a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.related-list a:hover {
+  text-decoration: underline;
+}
+
+/* === TOOL PAGE INTRO === */
+.tool-page-intro {
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* === TOOLS LISTING GRID === */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.tool-listing-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.tool-listing-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: var(--green-dim);
+}
+
+.tool-listing-card .card-emoji {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.tool-listing-card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.tool-listing-card .card-excerpt {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* === OPEN FULL PAGE LINK === */
+.open-full-page {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--green);
+  text-decoration: none;
+  margin-top: 0.75rem;
+  font-weight: 500;
+}
+
+.open-full-page:hover {
+  text-decoration: underline;
+}

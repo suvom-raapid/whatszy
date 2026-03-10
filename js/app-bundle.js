@@ -394,6 +394,7 @@
   // =============================
 
   function initTabs() {
+    if (!document.querySelector('.tab-nav')) return;
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
     const tabNav = document.querySelector('.tab-nav');
@@ -735,6 +736,13 @@
     if (walinkMessage) walinkMessage.addEventListener('input', generateWaLink);
   }
 
+  function handleHashRoute() {
+    var hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+    var tabBtn = document.querySelector('.tab-btn[data-tab="' + hash + '"]');
+    if (tabBtn) tabBtn.click();
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Initializing WhatsFormat...');
 
@@ -750,6 +758,10 @@
 
       bindToolEvents();
       console.log('✓ Tool events bound');
+
+      // Hash routing: open tab from URL hash (e.g. /#blank)
+      handleHashRoute();
+      window.addEventListener('hashchange', handleHashRoute);
 
       console.log('✓ WhatsFormat loaded successfully!');
     } catch (error) {

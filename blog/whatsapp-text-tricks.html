@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- PropellerAds In-Page Push -->
-  <script>(function(s){s.dataset.zone='10702718',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <!-- PropellerAds (deferred) -->
+  <script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.dataset.zone = '10702718';
+    s.src = 'https://nap5k.com/tag.min.js';
+    document.body.appendChild(s);
+  });
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YTQW8NG2R"></script>
   <script>
@@ -45,13 +52,14 @@
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/styles.css">
 
   <!-- Cookie Notice -->
-  <script src="../js/cookie-consent.js"></script>
+  <script defer src="../js/cookie-consent.js"></script>
 
   <!-- Theme (blocking — prevents FOUC) -->
   <script src="../js/theme-init.js"></script>
@@ -159,12 +167,12 @@
   <h2>6. Send Blank Messages</h2>
   <p>Yes, you can send a completely empty-looking message on WhatsApp. The trick involves using invisible Unicode characters -- special characters that take up space but do not render visually. It is a fun way to confuse friends or create visual spacing in group chats.</p>
   <div class="format-example">&#x200E;</div>
-  <p>Typing invisible characters manually is tedious, which is why we built a tool for it. Our <a href="../index.html" style="color:var(--green);">Blank Message Generator</a> lets you create invisible messages with a single click. You can also read our <a href="whatsapp-blank-message-guide.html" style="color:var(--green);">full guide on blank messages</a> to learn all the details.</p>
+  <p>Typing invisible characters manually is tedious, which is why we built a tool for it. Our <a href="../tools/blank-message-generator.html" style="color:var(--green);">Blank Message Generator</a> lets you create invisible messages with a single click. You can also read our <a href="whatsapp-blank-message-guide.html" style="color:var(--green);">full guide on blank messages</a> to learn all the details.</p>
 
   <h2>7. Use Fancy Unicode Fonts</h2>
   <p>Regular text feeling a little plain? Unicode gives you access to dozens of alternative character sets that look like entirely different fonts. You can send messages in bold serif, italic script, circled letters, squared text, and more -- all without installing anything.</p>
   <div class="format-example">Regular: Hello World<br>Script: 𝓗𝓮𝓵𝓵𝓸 𝓦𝓸𝓻𝓵𝓭<br>Double-Struck: 𝕳𝖊𝖑𝖑𝖔 𝖂𝖔𝖗𝖑𝖉<br>Circled: Ⓗⓔⓛⓛⓞ Ⓦⓞⓡⓛⓓ</div>
-  <p>These are not actually fonts in the traditional sense. They are Unicode characters that happen to look like styled text. The best part? They work everywhere, not just WhatsApp. Try our <a href="../index.html" style="color:var(--green);">Fancy Text Generator</a> to convert any text instantly, or read our <a href="whatsapp-fancy-text-stylish-messages.html" style="color:var(--green);">guide to fancy text on WhatsApp</a>.</p>
+  <p>These are not actually fonts in the traditional sense. They are Unicode characters that happen to look like styled text. The best part? They work everywhere, not just WhatsApp. Try our <a href="../tools/fancy-text-generator.html" style="color:var(--green);">Fancy Text Generator</a> to convert any text instantly, or read our <a href="whatsapp-fancy-text-stylish-messages.html" style="color:var(--green);">guide to fancy text on WhatsApp</a>.</p>
 
   <h2>8. Create Bullet Lists</h2>
   <p>WhatsApp does not have a built-in bullet list feature, but you can fake one using Unicode bullet characters. Just copy the bullet point symbol and use it at the start of each line. The result looks clean and organized.</p>
@@ -178,12 +186,12 @@
 
   <h2>10. Count Characters Before Sending</h2>
   <p>Did you know WhatsApp has a character limit per message? A single message can hold up to 65,536 characters, which is plenty for most people. But if you are writing something long -- a detailed announcement, a story, or a formatted document -- it helps to know where you stand.</p>
-  <p>Our <a href="../index.html" style="color:var(--green);">Character Counter tool</a> shows your character count, word count, line count, and even emoji count in real time. It is a small utility, but it can save you the frustration of hitting the limit mid-message.</p>
+  <p>Our <a href="../tools/character-word-counter.html" style="color:var(--green);">Character Counter tool</a> shows your character count, word count, line count, and even emoji count in real time. It is a small utility, but it can save you the frustration of hitting the limit mid-message.</p>
   <div class="format-example">Characters: 142 | Words: 28 | Lines: 3 | Emojis: 2</div>
 
   <div class="tool-cta">
     <p>Want to try all these tricks without memorizing the syntax?</p>
-    <a href="../index.html">Try Our Free WhatsApp Text Tools &rarr;</a>
+    <a href="../tools/text-formatter.html">Try Our Free WhatsApp Text Tools &rarr;</a>
   </div>
 
   <div class="related-articles">
@@ -198,6 +206,7 @@
 
   <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); text-align:center; color:var(--text-dark); font-size:0.9rem;">
     <p><a href="../index.html" style="color:var(--green); text-decoration:none;">Home</a> |
+       <a href="../tools/" style="color:var(--green); text-decoration:none;">Tools</a> |
        <a href="../blog.html" style="color:var(--green); text-decoration:none;">Blog</a> |
        <a href="../privacy.html" style="color:var(--green); text-decoration:none;">Privacy Policy</a> |
        <a href="../terms.html" style="color:var(--green); text-decoration:none;">Terms of Service</a> |

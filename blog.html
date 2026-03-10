@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- PropellerAds In-Page Push -->
-  <script>(function(s){s.dataset.zone='10702718',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <!-- PropellerAds (deferred) -->
+  <script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.dataset.zone = '10702718';
+    s.src = 'https://nap5k.com/tag.min.js';
+    document.body.appendChild(s);
+  });
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YTQW8NG2R"></script>
   <script>
@@ -45,13 +52,14 @@
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- Cookie Notice -->
-  <script src="js/cookie-consent.js"></script>
+  <script defer src="js/cookie-consent.js"></script>
 
   <!-- Theme (blocking — prevents FOUC) -->
   <script src="js/theme-init.js"></script>
@@ -432,6 +440,7 @@
 
   <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-dark); font-size: 0.9rem;">
     <p><a href="index.html" style="color: var(--green); text-decoration: none;">Home</a> |
+       <a href="tools/" style="color: var(--green); text-decoration: none;">Tools</a> |
        <a href="privacy.html" style="color: var(--green); text-decoration: none;">Privacy Policy</a> |
        <a href="terms.html" style="color: var(--green); text-decoration: none;">Terms of Service</a> |
        <a href="about.html" style="color: var(--green); text-decoration: none;">About</a></p>

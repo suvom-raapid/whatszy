@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- PropellerAds In-Page Push -->
-  <script>(function(s){s.dataset.zone='10702718',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <!-- PropellerAds (deferred) -->
+  <script>
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.dataset.zone = '10702718';
+    s.src = 'https://nap5k.com/tag.min.js';
+    document.body.appendChild(s);
+  });
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YTQW8NG2R"></script>
   <script>
@@ -45,13 +52,14 @@
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/styles.css">
 
   <!-- Cookie Notice -->
-  <script src="../js/cookie-consent.js"></script>
+  <script defer src="../js/cookie-consent.js"></script>
 
   <!-- Theme (blocking — prevents FOUC) -->
   <script src="../js/theme-init.js"></script>
@@ -156,7 +164,7 @@
 
   <h2>Status Character Limit</h2>
   <p>Text statuses are a different story. WhatsApp limits them to <strong>700 characters</strong>, which is considerably more restrictive than the message limit. That is roughly two short paragraphs or about 100 to 130 words. If you have ever tried posting a long quote or thought on your status and found it getting cut off, this is why.</p>
-  <p>The best way to avoid an unpleasant surprise is to check your character count before posting. The <a href="../index.html" style="color:var(--green);">Character Counter</a> on WhatsFormat shows your exact count in real time, so you can trim your text before hitting the 700-character wall.</p>
+  <p>The best way to avoid an unpleasant surprise is to check your character count before posting. The <a href="../tools/character-word-counter.html" style="color:var(--green);">Character Counter</a> on WhatsFormat shows your exact count in real time, so you can trim your text before hitting the 700-character wall.</p>
 
   <h2>Group Description Limit</h2>
   <p>If you manage WhatsApp groups, you have probably noticed the description field is not very spacious. Group descriptions are capped at <strong>512 characters</strong>. That is enough for a brief summary of the group's purpose, a few ground rules, and maybe a link. Plan your wording carefully, because every character counts here. Abbreviations and concise language are your friends.</p>
@@ -179,7 +187,7 @@
   </div>
 
   <h2>How to Count Characters</h2>
-  <p>Manually counting characters is tedious and error-prone, especially when you are dealing with emojis, special characters, or formatted text. The <a href="../index.html" style="color:var(--green);">Character Counter</a> tool on WhatsFormat makes it effortless. Just paste or type your text and it instantly displays your character count, word count, line count, and even the number of emojis. It updates in real time as you type, so you always know exactly where you stand before sending or posting.</p>
+  <p>Manually counting characters is tedious and error-prone, especially when you are dealing with emojis, special characters, or formatted text. The <a href="../tools/character-word-counter.html" style="color:var(--green);">Character Counter</a> tool on WhatsFormat makes it effortless. Just paste or type your text and it instantly displays your character count, word count, line count, and even the number of emojis. It updates in real time as you type, so you always know exactly where you stand before sending or posting.</p>
 
   <h2>Formatting and Character Count</h2>
   <p>Here is something a lot of people do not realize: formatting characters count toward your total. When you make text bold by wrapping it in asterisks (<code>*like this*</code>), italic with underscores (<code>_like this_</code>), or strikethrough with tildes (<code>~like this~</code>), those symbols are part of the character count even though they disappear in the rendered message.</p>
@@ -188,7 +196,7 @@
 
   <div class="tool-cta">
     <p>Stay within the limit every time.</p>
-    <a href="../index.html">Count your characters before sending &rarr;</a>
+    <a href="../tools/character-word-counter.html">Count your characters before sending &rarr;</a>
   </div>
 
   <div class="related-articles">
@@ -202,6 +210,7 @@
 
   <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); text-align:center; color:var(--text-dark); font-size:0.9rem;">
     <p><a href="../index.html" style="color:var(--green); text-decoration:none;">Home</a> |
+       <a href="../tools/" style="color:var(--green); text-decoration:none;">Tools</a> |
        <a href="../blog.html" style="color:var(--green); text-decoration:none;">Blog</a> |
        <a href="../privacy.html" style="color:var(--green); text-decoration:none;">Privacy Policy</a> |
        <a href="../terms.html" style="color:var(--green); text-decoration:none;">Terms of Service</a> |
